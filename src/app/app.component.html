@@ -1,0 +1,141 @@
+<!-- TOP NAVIGATION -->
+<div class="ui top attached menu" style="height: 55px;">
+  <div class="left menu">
+    <div class="item">
+      <img src="assets/images/jukebot.png" alt="jukebot">
+    </div>
+    <a href="/auth/google" class="item">
+      <i class="google icon"></i> Login
+    </a>
+    <div class="item">
+      <div class="ui left icon input">
+        <input type="text" maxlength="24" placeholder="Username..." name="" value="">
+        <i class="user icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui search item no-border" style="max-width: 450px; flex-grow: 1;">
+    <div class="ui icon input" style="padding: 8px;">
+      <input class="prompt" placeholder="Search YouTube..." type="text" autocomplete="off" style="border-radius: 0;">
+    </div>
+    <div class="results" style="width: 100%;">
+
+    </div>
+  </div>
+
+  <div class="right menu">
+    <div class="item">
+      <div class="ui dropdown" tabindex="0">
+
+      </div>
+    </div>
+    <a class="icon item" title="Favorites">
+      <i class="large red heart icon"></i>
+    </a>
+    <a class="ui item" style="opacity: .75;">JukeBot v2.0-dev</a>
+    <a class="icon item" href="https://github.com/TheConnMan/jukebot/issues" target="_blank" title="Open an Issue">
+      <i class="large github icon"></i>
+    </a>
+  </div>
+</div>
+<!-- END TOP NAVIGATION -->
+
+<!-- FAVORITES SIDEBAR -->
+<div class="ui favorites inverted overlay right vertical menu sidebar" style="z-index: 5;">
+  <a class="header item">Favorites</a>
+</div>
+<!-- END FAVORITES SIDEBAR -->
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+  <div class="ui stackable grid" style="width: 100%;">
+    <!-- VIDEO -->
+    <div class="seven wide column">
+      <div class="ui card" style="width: 100%; max-height: calc(100vh - 77px);">
+        <div class="ui embed active">
+          <div class="embed">
+
+          </div>
+        </div>
+        <div class="content">
+          <span class="right floated">
+            <i class="big heart red like icon"></i>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="" value="">
+              <label>Minimize Video</label>
+            </div>
+          </span>
+          <a class="header"></a>
+          <div class="meta">
+            <span class="date">Added by</span>
+          </div>
+        </div>
+        <div class="extra content">
+
+        </div>
+        <div class="extra content listeners">
+
+        </div>
+      </div>
+    </div>
+    <!-- END VIDEO -->
+
+    <!-- PLAYLIST -->
+    <div class="five wide column">
+      <div class="ui top attached tabular menu">
+        <div class="active item">
+          Up Next
+          <div class="ui toggle checkbox" style="padding-left: 8px;">
+            <input type="checkbox" name="" value="">
+            <label for=""></label>
+          </div>
+        </div>
+        <div class="item">
+          Related
+        </div>
+      </div>
+      <div id="video-list" class="ui items bottom attached active tab segment">
+        <div class="item">
+          <div class="ui image ">
+
+          </div>
+          <div class="content">
+            <a class="header"></a>
+            <div class="meta">
+
+            </div>
+            <div class="meta">
+
+            </div>
+            <div class="extra">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PLAYLIST -->
+
+    <!-- CHAT -->
+    <div class="four wide column">
+      <div class="d-f fd-c h-100">
+        <h2 class="ui dividing header">Chat
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="" value="">
+            <label>Notifications</label>
+          </div>
+          <div class="ui feed fg-1" style="overflow-y: auto; word-break: break-word;">
+
+          </div>
+          <i class="content minimal" style="min-height: 1.5em;"></i>
+          <div class="ui fluid input" style="min-height: 2.5em;">
+            <input type="text" placeholder="Say something...">
+          </div>
+        </h2>
+      </div>
+    </div>
+    <!-- END CHAT -->
+  </div>
+</div>
+<!-- END MAIN CONTENT -->
