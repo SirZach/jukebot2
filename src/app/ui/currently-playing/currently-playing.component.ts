@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoService } from '../../services/video.service';
+import { GlobalService } from '../../services/global.service';
+import { WebsocketService } from '../../services/websocket.service';
+
+declare var io:any;
 
 @Component({
   selector: 'currently-playing',
@@ -12,9 +17,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentlyPlayingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private videoService: VideoService,
+    private globalService: GlobalService,
+    private websocketService: WebsocketService
+  ) {
+
+  }
 
   ngOnInit() {
+
   }
 
 }

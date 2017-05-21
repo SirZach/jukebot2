@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from '../models/video';
-// import { WebsocketService } from '../services/websocket.service';
-import { $WebSocket } from 'angular2-websocket/angular2-websocket'
+import { Video } from '../../models/video';
 
 @Component({
   selector: 'upcoming-playlist',
@@ -19,7 +17,7 @@ import { $WebSocket } from 'angular2-websocket/angular2-websocket'
 })
 export class UpcomingPlaylistComponent implements OnInit {
   videos: Video[];
-  ws: $WebSocket;
+  // ws: $WebSocket;
 
   constructor() {
     // this.ws = new $WebSocket('ws://localhost:1337/api/subscribeVideos');

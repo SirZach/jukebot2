@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MainNavComponent } from './main-nav/main-nav.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { CardComponent } from './card/card.component';
-import { CurrentlyPlayingComponent } from './currently-playing/currently-playing.component';
-import { UpcomingPlaylistComponent } from './upcoming-playlist/upcoming-playlist.component';
-import { RelatedPlaylistComponent } from './related-playlist/related-playlist.component';
+
+//UI
+import { MainNavComponent } from './ui/main-nav/main-nav.component';
+import { SidebarComponent } from './ui/sidebar/sidebar.component';
+import { CardComponent } from './ui/card/card.component';
+import { CurrentlyPlayingComponent } from './ui/currently-playing/currently-playing.component';
+import { UpcomingPlaylistComponent } from './ui/upcoming-playlist/upcoming-playlist.component';
+import { RelatedPlaylistComponent } from './ui/related-playlist/related-playlist.component';
+import { VideoSearchComponent } from './ui/video-search/video-search.component';
 
 import { VideoService } from './services/video.service';
-import { VideoSearchComponent } from './video-search/video-search.component';
+import { GlobalService } from './services/global.service';
+import { WebsocketService } from './services/websocket.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { VideoSearchComponent } from './video-search/video-search.component';
     HttpModule
   ],
   providers: [
-    VideoService
+    VideoService,
+    GlobalService,
+    WebsocketService
   ],
   bootstrap: [AppComponent]
 })

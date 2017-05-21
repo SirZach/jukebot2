@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { VideoSearch } from '../models/video-search';
-import { Video } from '../models/video';
-import { VideoService } from '../services/video.service';
+import { VideoSearch } from '../../models/video-search';
+import { Video } from '../../models/video';
+import { VideoService } from '../../services/video.service';
 
 declare var $:any;
 declare var moment:any;

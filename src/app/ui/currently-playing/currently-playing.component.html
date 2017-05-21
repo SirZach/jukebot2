@@ -11,7 +11,12 @@
       <label>Minimize Video</label>
     </div>
   </span>
-  <a class="header"></a>
+  <a class="header"
+    target="_blank"
+    *ngIf="videoService.currentVideo"
+  >
+    {{videoService.currentVideo.title}} <i class="youtube icon"></i>
+  </a>
   <div class="meta">
     <span class="date">Added by</span>
   </div>
