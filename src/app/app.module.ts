@@ -11,7 +11,7 @@ import { CurrentlyPlayingComponent } from './currently-playing/currently-playing
 import { UpcomingPlaylistComponent } from './upcoming-playlist/upcoming-playlist.component';
 import { RelatedPlaylistComponent } from './related-playlist/related-playlist.component';
 
-import { WebsocketService } from './services/websocket.service';
+import { VideoService } from './services/video.service';
 import { VideoSearchComponent } from './video-search/video-search.component';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { VideoSearchComponent } from './video-search/video-search.component';
     HttpModule
   ],
   providers: [
-    WebsocketService
+    VideoService
   ],
   bootstrap: [AppComponent]
 })
