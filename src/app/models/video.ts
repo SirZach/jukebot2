@@ -8,6 +8,8 @@ export class Video {
   thumbnail: string;
   playing: boolean;
   played: boolean;
+  playlistId: string;
+  playlistItems: number;
   isSuggestion: boolean;
 
   constructor(fields: Partial<Video>) {

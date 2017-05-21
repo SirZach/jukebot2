@@ -7,20 +7,32 @@ import { AppComponent } from './app.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CardComponent } from './card/card.component';
+import { CurrentlyPlayingComponent } from './currently-playing/currently-playing.component';
+import { UpcomingPlaylistComponent } from './upcoming-playlist/upcoming-playlist.component';
+import { RelatedPlaylistComponent } from './related-playlist/related-playlist.component';
+
+import { WebsocketService } from './services/websocket.service';
+import { VideoSearchComponent } from './video-search/video-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     SidebarComponent,
-    CardComponent
+    CardComponent,
+    CurrentlyPlayingComponent,
+    UpcomingPlaylistComponent,
+    RelatedPlaylistComponent,
+    VideoSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    WebsocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

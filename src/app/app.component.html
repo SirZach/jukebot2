@@ -11,32 +11,7 @@
   <div class="ui stackable grid w-100">
     <!-- VIDEO -->
     <div class="seven wide column">
-      <card class="w-100" style="max-height: calc(100vh - 77px);">
-        <div class="ui embed active">
-          <div class="embed">
-
-          </div>
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="big heart red like icon"></i>
-            <div class="ui toggle checkbox">
-              <input type="checkbox" name="" value="">
-              <label>Minimize Video</label>
-            </div>
-          </span>
-          <a class="header"></a>
-          <div class="meta">
-            <span class="date">Added by</span>
-          </div>
-        </div>
-        <div class="extra content">
-
-        </div>
-        <div class="extra content listeners">
-
-        </div>
-      </card>
+      <currently-playing style="max-height: calc(100vh - 77px);"></currently-playing>
     </div>
     <!-- END VIDEO -->
 
@@ -54,25 +29,7 @@
           Related
         </div>
       </div>
-      <div id="video-list" class="ui items bottom attached active tab segment">
-        <div class="item">
-          <div class="ui image ">
-
-          </div>
-          <div class="content">
-            <a class="header"></a>
-            <div class="meta">
-
-            </div>
-            <div class="meta">
-
-            </div>
-            <div class="extra">
-
-            </div>
-          </div>
-        </div>
-      </div>
+      <upcoming-playlist></upcoming-playlist>
     </div>
     <!-- END PLAYLIST -->
 
