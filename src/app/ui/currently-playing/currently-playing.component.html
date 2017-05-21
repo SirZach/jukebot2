@@ -3,7 +3,7 @@
 
   </div>
 </div>
-<div class="content">
+<div class="content" *ngIf="videoService.currentVideo">
   <span class="right floated">
     <i class="big heart red like icon"></i>
     <div class="ui toggle checkbox">
@@ -13,12 +13,12 @@
   </span>
   <a class="header"
     target="_blank"
-    *ngIf="videoService.currentVideo"
+    [attr.href]="'https://www.youtube.com/watch?v=' + videoService.currentVideo.key"
   >
     {{videoService.currentVideo.title}} <i class="youtube icon"></i>
   </a>
   <div class="meta">
-    <span class="date">Added by</span>
+    <span class="date">Added by {{videoService.currentVideo.user}}</span>
   </div>
 </div>
 <div class="extra content">
