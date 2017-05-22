@@ -1,19 +1,30 @@
-<div class="item" *ngFor="let video of videos">
+<div class="item" *ngFor="let video of videoService.videos">
   <div class="ui-image">
-  
+    <img src="{{video.thumbnail}}">
   </div>
 
   <div class="content">
-    <a class="header">{{video.title}}</a>
+    <a class="header"
+      target="_blank"
+      [attr.href]="'https://www.youtube.com/watch?v=' + video.key"
+    >
+      {{video.title}}
+    </a>
 
     <div class="meta">
-
+      <div>
+        Added by
+        <span>{{video.user}}</span>
+      </div>
+      ({{video.duration}})
     </div>
     <div class="meta">
 
     </div>
     <div class="extra">
-
+      <div class="ui mini right floated red basic button">
+        Remove
+      </div>
     </div>
   </div>
 </div>
