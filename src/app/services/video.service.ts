@@ -4,25 +4,32 @@ import { Video } from '../models/video';
 import { GlobalService } from '../services/global.service';
 
 import 'rxjs/add/operator/toPromise';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class VideoService {
   currentVideo: Video;
   videos: Video[];
 
+  currentVideoChanged = new Subject<Video>();
+
   constructor(
     private http: Http,
     private global: GlobalService
   ) { }
 
+  embedStartTime(video: Video) {
+    return video ? Math.max(Math.floor((this.global.INIT_TIME - new Date(video.startTime).getTime()) / 1000), 0) : 0;
+  }
+
   add(video: Video) {
-    debugger;
     this.videos.push(video);
     this.setCurrentVideo
   }
 
   setCurrentVideo(): void {
     this.currentVideo = this.videos.find((v) => v.playing);
+    this.currentVideoChanged.next(this.currentVideo);
   }
 
   addByKey(user: string, key: string): Promise<any> {

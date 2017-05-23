@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 import { VideoService } from '../../services/video.service';
 import { GlobalService } from '../../services/global.service';
 import { WebsocketService } from '../../services/websocket.service';
+import { Video } from '../../models/video';
 
 declare var io:any;
+declare var $:any;
 
 @Component({
   selector: 'currently-playing',
@@ -15,18 +17,41 @@ declare var io:any;
     '[class.w-100]': 'true'
   }
 })
-export class CurrentlyPlayingComponent implements OnInit {
+export class CurrentlyPlayingComponent {
+  @Input() video: Video;
+  @ViewChild('embed') embed: ElementRef;
 
   constructor(
     private videoService: VideoService,
     private globalService: GlobalService,
     private websocketService: WebsocketService
   ) {
-
+    videoService.currentVideoChanged.subscribe(
+      video => this.embedVideo(video)
+    );
   }
 
-  ngOnInit() {
+  embedVideo(video: Video) {
+    let embed = this.embed.nativeElement;
 
+    if (video) {
+      $(embed).embed({
+        url: video ? `//www.youtube.com/embed/${video.key}` : '',
+        autoplay: true,
+        parameters: {
+          start: this.videoService.embedStartTime(video)
+        }
+      });
+      $('.ui.dropdown').dropdown();
+
+      // let $playing = $('#video-list .yellow').closest('playlistitem');
+
+      // if ($playing.length) {
+      //   $playing[0].scrollIntoView({
+      //     behavior: 'smooth'
+      //   });
+      // }
+    };
   }
 
 }
