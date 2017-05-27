@@ -6,6 +6,8 @@ import { GlobalService } from '../services/global.service';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Subject';
 
+declare var io:any;
+
 @Injectable()
 export class VideoService {
   currentVideo: Video;
@@ -16,7 +18,7 @@ export class VideoService {
   constructor(
     private http: Http,
     private global: GlobalService
-  ) { }
+  ) {}
 
   embedStartTime(video: Video) {
     return video ? Math.max(Math.floor((this.global.INIT_TIME - new Date(video.startTime).getTime()) / 1000), 0) : 0;
@@ -24,7 +26,7 @@ export class VideoService {
 
   add(video: Video) {
     this.videos.push(video);
-    this.setCurrentVideo
+    this.setCurrentVideo();
   }
 
   setCurrentVideo(): void {

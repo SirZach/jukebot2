@@ -6,6 +6,7 @@ export class GlobalService {
   YOUTUBE_URL = 'https://www.youtube.com/watch?v=';
   WS_URL = 'http://localhost:1337';
   INIT_TIME = 0;
+  socket: any;
 
   constructor() {
     this.INIT_TIME = new Date().getTime();

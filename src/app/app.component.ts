@@ -15,17 +15,16 @@ export class AppComponent implements OnInit {
   constructor(
     private globalService: GlobalService,
     private videoService: VideoService,
-  ) {
-    io.sails.url = this.globalService.WS_URL;
-    io.socket.port = '1337';
-  }
+  ) { }
 
   ngOnInit() {
-    io.socket.get('/api/subscribeVideos', (body: any, JWR: any) => {
-      debugger;
-      this.videoService.add(body as Video);
+    this.globalService.socket = io.sails.connect(this.globalService.WS_URL);
+    this.globalService.socket.get('/api/subscribeVideos', (body: any, JWR: any) => {});
+    this.globalService.socket.on('video', (body: any, JWR: any) => {
+      if (body.verb === 'created') {
+        this.videoService.add(body.data as Video);
+      }
     });
-
     this.videoService.get();
   }
 }

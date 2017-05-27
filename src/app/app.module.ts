@@ -16,7 +16,6 @@ import { VideoSearchComponent } from './ui/video-search/video-search.component';
 
 import { VideoService } from './services/video.service';
 import { GlobalService } from './services/global.service';
-import { WebsocketService } from './services/websocket.service';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { WebsocketService } from './services/websocket.service';
   ],
   providers: [
     VideoService,
-    GlobalService,
-    WebsocketService
+    GlobalService
   ],
   bootstrap: [AppComponent]
 })
