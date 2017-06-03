@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 import { VideoService } from '../../services/video.service';
 import { GlobalService } from '../../services/global.service';
+import { ListenerService } from '../../services/listener.service';
 import { Video } from '../../models/video';
 
 declare var io:any;
@@ -23,6 +24,7 @@ export class CurrentlyPlayingComponent {
   constructor(
     private videoService: VideoService,
     private globalService: GlobalService,
+    private listenerService: ListenerService
   ) {
     videoService.currentVideoChanged.subscribe(
       video => this.embedVideo(video)

@@ -22,7 +22,14 @@
   </div>
 </div>
 <div class="extra content">
-
+  <span style="cursor: pointer;">
+      <i class="users icon"></i>
+      <span *ngFor="let listener of listenerService.listeners">1</span>
+      <span *ngFor="let video of videoService.videos">9</span>
+      {{listenerService.listeners.length}} Listener
+      <i class="blue listeners caret right icon" style="display: none;"></i>
+      <i class="blue listeners caret down icon"></i>
+    </span>
 </div>
 <div class="extra content listeners">
 

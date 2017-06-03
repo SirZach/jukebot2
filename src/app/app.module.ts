@@ -16,6 +16,7 @@ import { VideoSearchComponent } from './ui/video-search/video-search.component';
 
 import { VideoService } from './services/video.service';
 import { GlobalService } from './services/global.service';
+import { ListenerService } from './services/listener.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GlobalService } from './services/global.service';
   ],
   providers: [
     VideoService,
-    GlobalService
+    GlobalService,
+    ListenerService
   ],
   bootstrap: [AppComponent]
 })
