@@ -17,6 +17,7 @@ import { VideoSearchComponent } from './ui/video-search/video-search.component';
 import { VideoService } from './services/video.service';
 import { GlobalService } from './services/global.service';
 import { ListenerService } from './services/listener.service';
+import { PluralizePipe } from './pipes/pluralize.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListenerService } from './services/listener.service';
     CurrentlyPlayingComponent,
     UpcomingPlaylistComponent,
     RelatedPlaylistComponent,
-    VideoSearchComponent
+    VideoSearchComponent,
+    PluralizePipe
   ],
   imports: [
     BrowserModule,
