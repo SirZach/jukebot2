@@ -30,5 +30,7 @@
     </span>
 </div>
 <div class="extra content listeners">
-
+  <span class="item" *ngFor="let listener of listenerService.listeners; let last = last" [attr.data-content]="listener.realuser ? listener.realuser : null">
+    {{listener.username}}{{last ? '' : ', '}}
+  </span>
 </div>
