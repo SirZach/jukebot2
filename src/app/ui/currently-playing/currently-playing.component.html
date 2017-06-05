@@ -22,8 +22,15 @@
   </div>
 </div>
 <div class="extra content">
-
+  <span style="cursor: pointer;">
+      <i class="users icon"></i>
+      {{listenerService.listeners.length}} {{'Listener' | pluralize:listenerService.listeners.length}}
+      <i class="blue listeners caret right icon" style="display: none;"></i>
+      <i class="blue listeners caret down icon"></i>
+    </span>
 </div>
 <div class="extra content listeners">
-
+  <span class="item" *ngFor="let listener of listenerService.listeners; let last = last" [attr.data-content]="listener.realuser ? listener.realuser : null">
+    {{listener.username}}{{last ? '' : ', '}}
+  </span>
 </div>
