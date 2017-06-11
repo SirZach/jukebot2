@@ -21,6 +21,8 @@ export class CurrentlyPlayingComponent {
   @Input() video: Video;
   @ViewChild('embed') embed: ElementRef;
 
+  showListeners = true;
+
   constructor(
     private videoService: VideoService,
     private globalService: GlobalService,
@@ -56,6 +58,10 @@ export class CurrentlyPlayingComponent {
       //   });
       // }
     };
+  }
+
+  toggleShowListeners() {
+    this.showListeners = !this.showListeners;
   }
 
 }
