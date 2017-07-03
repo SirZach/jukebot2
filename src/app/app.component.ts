@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     });
     this.globalService.socket.on('video', (body: any, JWR: any) => {
       if (body.verb === 'created') {
-        this.videoService.add(body.data as Video);
+        this.videoService.add(body.data as Video, false);
       }
     });
     this.globalService.socket.on('listening', (body: any, JWR: any) => {

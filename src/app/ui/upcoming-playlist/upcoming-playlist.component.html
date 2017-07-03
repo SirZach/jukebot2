@@ -22,8 +22,20 @@
 
     </div>
     <div class="extra">
-      <div class="ui mini right floated red basic button">
+      <div *ngIf="!video.played && !video.playing && !isSuggestion"
+        class="ui mini right floated red basic button"
+        (click)="remove(video)">
         Remove
+      </div>
+      <div *ngIf="video.played && !video.playing || isSuggestion"
+        class="ui mini right floated green basic button"
+        (click)="add(video)">
+        Add
+      </div>
+      <div *ngIf="video.playing"
+        class="ui mini right floated yellow basic button"
+        (click)="skip()">
+        Skip
       </div>
     </div>
   </div>

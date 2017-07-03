@@ -24,9 +24,15 @@ export class VideoService {
     return video ? Math.max(Math.floor((this.global.INIT_TIME - new Date(video.startTime).getTime()) / 1000), 0) : 0;
   }
 
-  add(video: Video) {
-    this.videos.push(video);
-    this.setCurrentVideo();
+  add(video: Video, sendOverWire = true): void {
+    if (sendOverWire) {
+      this.addByKey('', video.key)
+        .then((newVideo: Video) => {
+          this.setCurrentVideo();
+        });
+    } else {
+      this.videos.push(video)
+    }
   }
 
   setCurrentVideo(): void {
@@ -55,6 +61,31 @@ export class VideoService {
         this.setCurrentVideo();
 
         return videos;
+      })
+      .catch(this.handleError);
+  }
+
+
+  skip() {
+    return this.http.post(`${this.global.API_URL}/api/skip`, {
+        username: ''
+      })
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  remove(video: Video): Promise<any> {
+    return this.http.delete(`${this.global.API_URL}/api/remove`, {
+        params: {
+          user: '',
+          id: video.id
+        }
+      })
+      .toPromise()
+      .then(() => {
+        let foundVideo = this.videos.find(v => v.id === video.id);
+
+        this.videos.splice(this.videos.indexOf(foundVideo), 1);
       })
       .catch(this.handleError);
   }

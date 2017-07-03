@@ -11,6 +11,7 @@ export class Video {
   playlistId: string;
   playlistItems: number;
   isSuggestion: boolean;
+  id: number;
 
   constructor(fields: Partial<Video>) {
     Object.assign(this, fields);

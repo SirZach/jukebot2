@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Video } from '../../models/video';
 import { VideoService } from '../../services/video.service';
 
@@ -18,10 +18,26 @@ import { VideoService } from '../../services/video.service';
 })
 export class UpcomingPlaylistComponent implements OnInit {
   constructor(
-    private videoService: VideoService
-  ) { }
+    private videoService: VideoService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    videoService.currentVideoChanged.subscribe(
+      video => this.changeDetectorRef.detectChanges()
+    );
+  }
 
   ngOnInit() {
   }
 
+  add(video: Video) {
+    this.videoService.add(video);
+  }
+
+  remove(video: Video) {
+    this.videoService.remove(video);
+  }
+
+  skip() {
+    this.videoService.skip();
+  }
 }
